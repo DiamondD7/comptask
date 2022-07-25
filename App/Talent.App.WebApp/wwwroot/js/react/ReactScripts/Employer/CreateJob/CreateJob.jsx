@@ -106,7 +106,7 @@ export default class CreateJob extends React.Component {
                 'Content-Type': 'application/json'
             },
             dataType:'json',
-            type: "post",
+            type: "POST",
             data: JSON.stringify(jobData),
             success: function (res) {
                 if (res.success == true) {

@@ -6,6 +6,7 @@ import { LoggedInNavigation } from '../../Layout/LoggedInNavigation.jsx';
 import { JobSummaryCard } from './JobSummaryCard.jsx';
 import { BodyWrapper, loaderData } from '../../Layout/BodyWrapper.jsx';
 import { Pagination, Icon, Dropdown, Checkbox, Accordion, Form, Segment } from 'semantic-ui-react';
+import axios from 'axios';
 
 export default class ManageJob extends React.Component {
     constructor(props) {
@@ -40,25 +41,53 @@ export default class ManageJob extends React.Component {
     init() {
         let loaderData = TalentUtil.deepCopy(this.state.loaderData)
         loaderData.isLoading = false;
-        this.setState({ loaderData });//comment this
+        this.setState({ loaderData });
+        /*this.loadData((callback) =>
+            this.setState({ loaderData })
+        );*/
+        /*        this.setState({ loaderData });*///comment this
 
         //set loaderData.isLoading to false after getting data
-        //this.loadData(() =>
-        //    this.setState({ loaderData })
-        //)
-        
+
         //console.log(this.state.loaderData)
     }
 
     componentDidMount() {
-        this.init();
+        
+        this.loadData();
     };
 
-    loadData(callback) {
+    loadData() {
         var link = 'http://localhost:51689/listing/listing/getSortedEmployerJobs';
         var cookies = Cookies.get('talentAuthToken');
-       // your ajax call and other logic goes here
+
+        $.ajax({
+            url: link,
+            headers: {
+                'Authorization': 'Bearer ' + cookies,
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            contentType: "application/json",
+            success: function (res) {
+                
+                let load = null;
+                load = res.data;
+                this.setState({ loadJobs: load })
+                /*if (res) {
+                    loadJobs = res.myJobs //idk if this is right.
+                    console.log("job listing data:", res);
+                }*/
+            }.bind(this),
+            error: function(res) {
+                console.log(res.status)
+            }
+        })
+        this.init();
+        
+
     }
+
 
     loadNewData(data) {
         var loader = this.state.loaderData;
@@ -77,7 +106,10 @@ export default class ManageJob extends React.Component {
     render() {
         return (
             <BodyWrapper reload={this.init} loaderData={this.state.loaderData}>
-               <div className ="ui container">Your table goes here</div>
+                <div className="ui container">
+                    <h1>List of Jobs</h1>
+                    <p>{this.state.loadJobs}</p>
+                </div>
             </BodyWrapper>
         )
     }
