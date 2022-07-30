@@ -123,18 +123,6 @@ export default class ManageJob extends React.Component {
 
     handlePageClick(e, { activePage }) {
         this.setState({ currentPage: activePage })
-        /*console.log("this is: ", e.target.activePage);
-        const selectedPage = num.selected;
-        const offset = selectedPage * this.state.perPage;
-        this.setState(
-            {
-                currentPage: selectedPage,
-                offset: offset
-            },
-            () => {
-                this.loadData();
-            }
-        );*/
     };
 
 
