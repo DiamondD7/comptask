@@ -198,6 +198,7 @@ namespace Talent.Services.Listing.Controllers
 
                 //}
 
+
                 if (sortbyDate == "desc")
                 {
                     var returnJobs = sortedJobs.OrderByDescending(x => x.CreatedOn).Skip((activePage - 1) * limit).Take(limit)
@@ -216,6 +217,7 @@ namespace Talent.Services.Listing.Controllers
             {
                 return Json(new { Success = false, Message = "Error while retriving Jobs" });
             }
+            
         }
         [HttpPost("closeJob")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "employer, recruiter")]

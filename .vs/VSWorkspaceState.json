@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\App",
+    "\\Talent.Services.Listing"
   ],
   "SelectedNode": "\\Talent.sln",
   "PreviewInSolutionExplorer": false
