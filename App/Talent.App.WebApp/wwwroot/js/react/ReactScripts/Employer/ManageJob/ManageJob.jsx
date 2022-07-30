@@ -162,38 +162,7 @@ export default class ManageJob extends React.Component {
                                     Tag Label
                                 </div>
                                 <div className="scrolling menu">
-                                    <div className="item" data-value="important">
-                                        <div className="ui red empty circular label"></div>
-                                        Important
-                                    </div>
-                                    <div className="item" data-value="announcement">
-                                        <div className="ui blue empty circular label"></div>
-                                        Announcement
-                                    </div>
-                                    <div className="item" data-value="cannotfix">
-                                        <div className="ui black empty circular label"></div>
-                                        Cannot Fix
-                                    </div>
-                                    <div className="item" data-value="news">
-                                        <div className="ui purple empty circular label"></div>
-                                        News
-                                    </div>
-                                    <div className="item" data-value="enhancement">
-                                        <div className="ui orange empty circular label"></div>
-                                        Enhancement
-                                    </div>
-                                    <div className="item" data-value="off-topic">
-                                        <div className="ui yellow empty circular label"></div>
-                                        Off Topic
-                                    </div>
-                                    <div className="item" data-value="interesting">
-                                        <div className="ui pink empty circular label"></div>
-                                        Interesting
-                                    </div>
-                                    <div className="item" data-value="discussion">
-                                        <div className="ui green empty circular label"></div>
-                                        Discussion
-                                    </div>
+                                    
                                 </div>
                             </div>
 
