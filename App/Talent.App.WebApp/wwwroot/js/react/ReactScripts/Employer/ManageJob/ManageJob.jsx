@@ -44,14 +44,6 @@ export default class ManageJob extends React.Component {
         let loaderData = TalentUtil.deepCopy(this.state.loaderData);
         loaderData.isLoading = false;
         this.setState({ loaderData });
-        /*this.loadData((callback) =>
-            this.setState({ loaderData })
-        );*/
-        /*        this.setState({ loaderData });*///comment this
-
-        //set loaderData.isLoading to false after getting data
-
-        //console.log(this.state.loaderData)
     }
 
     componentDidMount() {
