@@ -76,26 +76,10 @@ export default class ManageJob extends React.Component {
             dataType: "json",
             success: function (res) {
                 let loadJobs = null;
-                /*const data = res.myJobs;
-                const x = data.slice(
-                    this.state.offset,
-                    this.state.offset + this.state.perPage
-                );
-                console.log(res.myJobs.length);
-                console.log(x.length);*/
                 currentthis.setState({
                     loadJobs: res.myJobs,
                     totalPages: Math.ceil(res.myJobs.length / this.state.perPage)
                 })
-                if (res.myJobs) {
-                    /*currentthis.setState({
-                        loadJobs: res.myJobs.slice(this.state.offset, this.state.offset + this.state.perPage)
-                    })*/
-                    //currentthis.setState({ loadJobs: x })
-                    //loadJobs = res.myJobs //idk if this is right.
-                    //console.log("data", res.myJobs);
-                    //this.setState({ loadJobs: res.myJobs })
-                }
 
             }.bind(this),
             error: function (res) {
